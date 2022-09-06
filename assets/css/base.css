@@ -1,0 +1,236 @@
+:root{
+    --white-color:#fff;
+    --black-color:#000;
+    --text-color:#333;
+    --primary-color:#ee4d2d;
+    --border-color:#bdbdbd;
+    --header-height:120px;
+    --navbar-height:34px;
+    --header-with-search-height:calc(var(--header-height) - (var(--navbar-height)))
+    --star-gold-color: #ffce3d ;
+}
+*{
+    box-sizing:inherit ;
+}
+html{
+    font-style: 62.5%;
+    /*  độ cao mặc định của đa phần các dòng chữ*/
+    line-height: 1.6rem; 
+    font-family: 'Roboto', sans-serif; 
+    box-sizing: border-box;
+}
+.appshop{
+    background-color: #f5f5f5;
+}
+/* responsive độ dài giới hạn 1200 khi nhỏ hơn thì băng 100% kích thước thu được magin để căn giữa  */
+
+.grid{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+/* để trong trường hợp chiều dài không bằng 1200 */
+.grid__full-width{
+    width:100%;
+}
+/* tự hiểu đi thằnglol */
+.grid__row{
+    top: auto;
+    display:flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    margin-right: -5px;
+
+}
+/* test */
+.grid__column-2{
+display: inline-block;
+padding-left:5px ;
+padding-right: 5px;
+width: 16.6667%;
+}
+.grid__column-2-4{
+    padding-left:4px ;
+    padding-right: 4px;
+    width: 19.6003427%;
+    display: inline-block;
+}
+
+
+.grid__column-10{
+    padding-left:5px ;
+    padding-right: 5px;
+    width: 83.3334%;
+    }
+    /* grid -> row -> column */
+/* animation */
+@keyframes slow-display{
+    from{
+    opacity: 0;
+    }
+    to{
+    opacity: 1;
+    }
+}
+@keyframes growth{
+    from{
+        transform: scale(var(--grow-from));
+    }
+    to{
+        transform: scale(var(--grow-to));
+    }
+}
+/* modal */
+.auth-form{
+    width: 500px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    /* để xử lí vấn đề con đè lên cha và làm mất border-radius ở cuối social */
+    overflow: hidden;
+}
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: slow-display linear 0.1s;
+
+
+}
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .35);
+}
+.modal__body{
+--growth-from:0.7;
+--growth-to:1;
+margin: auto;
+position: relative;
+animation: growth linear 0,1s;
+}
+/* button style */
+.btn{
+    background-color: #fff;
+    min-width: 124px;
+    height: 34px;
+    text-decoration: none;
+    border-radius:3px ;
+    border: none;
+    font-size: 14px;
+    padding: 0 12px;
+    cursor: pointer;
+    outline: none;
+    color: var(--text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.4rem;
+}
+.btn.btn-hover:hover{
+    background-color: rgba(0 , 0, 0, 0.05);
+}
+.btn.btn--primary{
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+.btn.btn--disable{
+    color: #ccc;
+    cursor: default;
+    background-color: #999;
+}
+.btn.btn--size-s{
+    height: 32px;
+    font-size: 12px;
+    padding: 0 8px;
+}
+/* selection */
+.select-input{
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    
+}
+.select-input__label{
+    font-size: 14px;
+}
+.select-input__icon{
+    font-size: 14px;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+}
+.select-input__list{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 8px 16px;
+    list-style: none; 
+    display: none;   
+    margin-top: 10px;
+    z-index: 1;
+
+}
+.select-input__link{
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 4px 0;
+
+}
+.select-input__item{
+font-size: 14px;
+}
+.select-input__link:hover{
+    color: var(--primary-color);
+}
+.select-input:hover .select-input__list{
+    display: block;
+}
+/* pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+}
+.pagination-item{
+margin: 0 12px;
+}
+.pagination-item_link{
+    --height:30px;
+    display: block;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: 20px;
+    color: #939393;
+    min-width:40px ;
+    height: var(--height);
+    line-height: var(--height);
+    text-align: center;
+    border-radius:4px ;
+
+}
+.pagination-item_active.pagination-item_link:hover{
+    filter: brightness(20%);
+}
+.pagination-item_active.pagination-item_link{
+    color: var(--white-color);
+        background-color: var(--primary-color);}
+
+
+
+
